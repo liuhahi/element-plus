@@ -1,11 +1,11 @@
 <template>
-  <div class="tag-group my-2 flex flex-wrap gap-1 items-center">
-    <span class="tag-group__title m-1 line-height-2">Dark</span>
+  <div class="tag-group my-2">
+    <span class="tag-group__title m-1">Dark</span>
     <el-tag
       v-for="item in items"
       :key="item.label"
-      :type="item.type"
       class="mx-1"
+      :type="item.type"
       effect="dark"
     >
       {{ item.label }}
@@ -13,15 +13,15 @@
     <el-tag
       v-for="item in items"
       :key="item.label"
-      :type="item.type"
       class="mx-1"
+      :type="item.type"
       effect="dark"
       closable
     >
       {{ item.label }}
     </el-tag>
   </div>
-  <div class="tag-group my-2 flex flex-wrap gap-1 items-center">
+  <div class="tag-group my-2">
     <span class="tag-group__title m-1">Plain</span>
     <el-tag
       v-for="item in items"
@@ -48,11 +48,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import type { TagProps } from 'element-plus'
-
-type Item = { type: TagProps['type']; label: string }
-
-const items = ref<Array<Item>>([
+const items = ref([
   { type: '', label: 'Tag 1' },
   { type: 'success', label: 'Tag 2' },
   { type: 'info', label: 'Tag 3' },

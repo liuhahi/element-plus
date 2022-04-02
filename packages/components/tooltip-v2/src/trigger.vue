@@ -2,7 +2,7 @@
   <forward-ref v-if="nowrap" :set-ref="setTriggerRef" only-child>
     <slot />
   </forward-ref>
-  <button v-else ref="triggerRef" v-bind="$attrs">
+  <button v-else ref="triggerRef">
     <slot />
   </button>
 </template>
@@ -29,8 +29,7 @@ const props = defineProps({
  * it will check if delayDuration is set to greater than 0 and based on that result,
  * if true, it opens the tooltip after delayDuration, otherwise it opens it instantly.
  */
-const { onClose, onOpen, onDelayOpen, triggerRef, contentId } =
-  inject(tooltipV2RootKey)!
+const { onClose, onOpen, onDelayOpen, triggerRef } = inject(tooltipV2RootKey)!
 
 let isMousedown = false
 
@@ -38,13 +37,13 @@ const setTriggerRef = (el: HTMLElement | null) => {
   triggerRef.value = el
 }
 
-const onMouseup = () => {
-  isMousedown = false
-}
-
 const onMouseenter = composeEventHandlers(props.onMouseEnter, onDelayOpen)
 
 const onMouseleave = composeEventHandlers(props.onMouseLeave, onClose)
+
+const onMouseup = () => {
+  isMousedown = false
+}
 
 const onMousedown = composeEventHandlers(props.onMouseDown, () => {
   onClose()
@@ -86,10 +85,6 @@ const setEvents = <T extends (e: Event) => void>(
 watch(triggerRef, (triggerEl, previousTriggerEl) => {
   setEvents(triggerEl, events, 'addEventListener')
   setEvents(previousTriggerEl, events, 'removeEventListener')
-
-  if (triggerEl) {
-    triggerEl.setAttribute('aria-describedby', contentId.value)
-  }
 })
 
 onBeforeUnmount(() => {

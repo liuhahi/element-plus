@@ -45,7 +45,7 @@ const emit = defineEmits(tagEmits)
 const tagSize = useSize()
 const ns = useNamespace('tag')
 const classes = computed(() => {
-  const { type, hit, effect, closable, round } = props
+  const { type, hit, effect, closable } = props
   return [
     ns.b(),
     ns.is('closable', closable),
@@ -53,7 +53,6 @@ const classes = computed(() => {
     ns.m(tagSize.value),
     ns.m(effect),
     ns.is('hit', hit),
-    ns.is('round', round),
   ]
 })
 
