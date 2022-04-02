@@ -46,7 +46,6 @@ function useStyle<T>(
     display: 'inline-block',
     verticalAlign: 'middle',
   }
-  const tableWidth = ref()
 
   watchEffect(() => {
     layout.setHeight(props.height)
@@ -121,7 +120,7 @@ function useStyle<T>(
     requestAnimationFrame(doLayout)
 
     resizeState.value = {
-      width: (tableWidth.value = table.vnode.el.offsetWidth),
+      width: table.vnode.el.offsetWidth,
       height: table.vnode.el.offsetHeight,
     }
 
@@ -213,7 +212,7 @@ function useStyle<T>(
     const el = table.vnode.el
     const { width: oldWidth, height: oldHeight } = resizeState.value
 
-    const width = (tableWidth.value = el.offsetWidth)
+    const width = el.offsetWidth
     if (oldWidth !== width) {
       shouldUpdateLayout = true
     }
@@ -299,7 +298,7 @@ function useStyle<T>(
       height = `calc(100% - ${layout.appendHeight.value}px)`
     }
     return {
-      width: tableWidth.value ? `${tableWidth.value}px` : '',
+      width: `${resizeState.value.width}px`,
       height,
     }
   })

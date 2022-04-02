@@ -2,7 +2,6 @@ import { defineComponent, renderSlot, watch } from 'vue'
 import { buildProps, definePropType } from '@element-plus/utils'
 import { provideGlobalConfig } from '@element-plus/hooks'
 
-import { componentSizes } from '@element-plus/constants'
 import type { ExtractPropTypes } from 'vue'
 import type { ExperimentalFeatures } from '@element-plus/tokens'
 import type { Language } from '@element-plus/locale'
@@ -24,8 +23,7 @@ export const configProviderProps = buildProps({
 
   size: {
     type: String,
-    values: componentSizes,
-    default: '',
+    values: ['large', '', 'small'],
   },
 
   button: {

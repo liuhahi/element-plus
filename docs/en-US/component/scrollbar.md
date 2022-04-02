@@ -63,12 +63,11 @@ scrollbar/manual-scroll
 
 ## Scrollbar Methods
 
-| Method        | Description                                | Parameters                                            |
-| ------------- | ------------------------------------------ | ----------------------------------------------------- |
-| scrollTo      | scrolls to a particular set of coordinates | (options: ScrollToOptions \| number, yCoord?: number) |
-| setScrollTop  | Set distance to scroll top                 | (scrollTop: number)                                   |
-| setScrollLeft | Set distance to scroll left                | (scrollLeft: number)                                  |
-| update        | update scrollbar state manually            | —                                                     |
+| Method        | Description                     | Parameters           |
+| ------------- | ------------------------------- | -------------------- |
+| setScrollTop  | Set distance to scroll top      | (scrollTop: number)  |
+| setScrollLeft | Set distance to scroll left     | (scrollLeft: number) |
+| update        | update scrollbar state manually | —                    |
 
 ## Scrollbar Slots
 

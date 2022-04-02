@@ -1,5 +1,5 @@
 <template>
-  <slot :open="open" />
+  <slot />
 </template>
 
 <script setup lang="ts">
@@ -13,7 +13,7 @@ import {
   watch,
 } from 'vue'
 import { useTimeoutFn } from '@vueuse/core'
-import { useId, useNamespace } from '@element-plus/hooks'
+import { useId } from '@element-plus/hooks'
 import { isNumber, isPropAbsent } from '@element-plus/utils'
 import { TOOLTIP_V2_OPEN, tooltipV2RootKey } from '@element-plus/tokens'
 import { tooltipV2RootProps } from './root'
@@ -46,13 +46,8 @@ const { start: onDelayedOpen, stop: clearTimer } = useTimeoutFn(
   () => {
     open.value = true
   },
-  computed(() => props.delayDuration),
-  {
-    immediate: false,
-  }
+  computed(() => props.delayDuration)
 )
-
-const ns = useNamespace('tooltip-v2')
 
 const contentId = useId()
 
@@ -73,6 +68,8 @@ const onClose = () => {
 }
 
 const onChange = (open: boolean) => {
+  //
+
   if (open) {
     document.dispatchEvent(new CustomEvent(TOOLTIP_V2_OPEN))
     onOpen()
@@ -96,7 +93,6 @@ onBeforeUnmount(() => {
 provide(tooltipV2RootKey, {
   contentId,
   triggerRef,
-  ns,
 
   onClose,
   onDelayOpen,

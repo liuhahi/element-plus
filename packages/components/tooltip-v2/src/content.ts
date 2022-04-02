@@ -1,7 +1,12 @@
 import { buildProps, definePropType } from '@element-plus/utils'
 
 import type { ExtractPropTypes } from 'vue'
-import type { Placement, Strategy, VirtualElement } from '@floating-ui/dom'
+import type {
+  Padding,
+  Placement,
+  Strategy,
+  VirtualElement,
+} from '@floating-ui/dom'
 
 const tooltipV2Strategies = ['absolute', 'fixed'] as const
 
@@ -23,14 +28,9 @@ const tooltipV2Placements = [
 export const tooltipV2ContentProps = buildProps({
   ariaLabel: String,
   arrowPadding: {
-    type: definePropType<number>(Number),
+    type: definePropType<Padding>([Number, Object]),
     default: 5,
   },
-  effect: {
-    type: String,
-    default: '',
-  },
-  contentClass: String,
   /**
    * Placement of tooltip content relative to reference element (when absent it refers to trigger)
    */
@@ -46,18 +46,14 @@ export const tooltipV2ContentProps = buildProps({
     type: definePropType<HTMLElement | VirtualElement | null>(Object),
     default: null,
   },
-  offset: {
-    type: Number,
-    default: 8,
-  },
   strategy: {
     type: definePropType<Strategy>(String),
     values: tooltipV2Strategies,
-    default: 'absolute',
+    default: 'fixed',
   },
   showArrow: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 } as const)
 

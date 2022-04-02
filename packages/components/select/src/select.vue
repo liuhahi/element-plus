@@ -236,7 +236,7 @@
             :class="[
               nsSelect.is(
                 'empty',
-                !allowCreate && Boolean(query) && filteredOptionsCount === 0
+                !allowCreate && query && filteredOptionsCount === 0
               ),
             ]"
           >

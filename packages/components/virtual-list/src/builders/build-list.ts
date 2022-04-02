@@ -116,7 +116,7 @@ const createList = ({
       const windowStyle = computed(() => [
         {
           position: 'relative',
-          [`overflow-${_isHorizontal.value ? 'x' : 'y'}`]: 'scroll',
+          overflow: 'hidden',
           WebkitOverflowScrolling: 'touch',
           willChange: 'transform',
         },
@@ -508,7 +508,7 @@ const createList = ({
       const listContainer = h(
         Container as VNode,
         {
-          class: ['el-vl__window', className],
+          class: className,
           style: windowStyle,
           onScroll,
           onWheel,
