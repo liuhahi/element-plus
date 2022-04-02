@@ -141,3 +141,5 @@ And thank you to all our backers! 🙏
 
 Element Plus is open source software licensed as
 [MIT](https://github.com/element-plus/element-plus/blob/master/LICENSE).
+
+# Publish a new version
