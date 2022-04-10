@@ -91,6 +91,7 @@ declare module 'vue' {
     ElDescriptionsItem: typeof import('element-plus')['ElDescriptionsItem']
     ElResult: typeof import('element-plus')['ElResult']
     ElSelectV2: typeof import('element-plus')['ElSelectV2']
+    // ElMessageTest: typeof import('element-plus')['ElMessageTest']
   }
 }
 

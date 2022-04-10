@@ -93,12 +93,14 @@ declare module 'vue' {
     ElDescriptionsItem: typeof import('../packages/element-plus')['ElDescriptionsItem']
     ElResult: typeof import('../packages/element-plus')['ElResult']
     ElSelectV2: typeof import('../packages/element-plus')['ElSelectV2']
+    // ElMessageTest: typeof import('../packages/element-plus')['ElMessageTest']
   }
 }
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $message: typeof import('../packages/element-plus')['ElMessage']
+    // $messageTest: typeof import('../packages/element-plus')['ElMessageTest']
     $notify: typeof import('../packages/element-plus')['ElNotification']
     $msgbox: typeof import('../packages/element-plus')['ElMessageBox']
     $messageBox: typeof import('../packages/element-plus')['ElMessageBox']
