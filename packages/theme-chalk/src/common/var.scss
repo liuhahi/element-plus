@@ -18,19 +18,19 @@ $colors: map.deep-merge(
     'white': #ffffff,
     'black': #000000,
     'primary': (
-      'base': #409eff,
+      'base': #066f97,
     ),
     'success': (
-      'base': #67c23a,
+      'base': #16b6b3,
     ),
     'warning': (
-      'base': #e6a23c,
+      'base': #ffb800,
     ),
     'danger': (
-      'base': #f56c6c,
+      'base': #d5335b,
     ),
     'error': (
-      'base': #f56c6c,
+      'base': #d5335b,
     ),
     'info': (
       'base': #909399,
@@ -642,7 +642,7 @@ $button: map.merge(
   (
     'font-weight': getCssVar('font-weight-primary'),
     'border-color': getCssVar('border-color'),
-    'bg-color': getCssVar('fill-color', 'blank'),
+    'bg-color': transparent,
     'text-color': getCssVar('text-color', 'regular'),
     'disabled-text-color': getCssVar('disabled-text-color'),
     'disabled-bg-color': getCssVar('fill-color', 'blank'),
