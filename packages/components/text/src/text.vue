@@ -11,7 +11,7 @@ import { textProps } from './text'
 defineOptions({
   name: 'ElLink',
 })
-const props = defineProps(textProps)
+defineProps(textProps)
 
 const ns = useNamespace('text')
 </script>
