@@ -9,7 +9,7 @@ import { useNamespace } from '@element-plus/hooks'
 import { textProps } from './text'
 
 defineOptions({
-  name: 'ElLink',
+  name: 'ElText',
 })
 defineProps(textProps)
 
