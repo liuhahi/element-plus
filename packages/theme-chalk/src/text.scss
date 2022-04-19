@@ -1,0 +1,40 @@
+@use 'sass:map';
+
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use 'mixins/utils' as *;
+@use 'common/var' as *;
+
+@include b(text) {
+  @include set-component-css-var('text', $text);
+}
+
+@include b(text) {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: getCssVar('text', 'font-size');
+  font-weight: getCssVar('text', 'font-weight');
+  font-family: 'Poppins', sans-serif;
+
+  color: getCssVar('text', 'text-color');
+
+  &:hover {
+    color: getCssVar('text', 'hover-text-color');
+  }
+
+  &.#{$namespace}-text--h1 {
+    font-size: 30px;
+  }
+
+  &.#{$namespace}-text--h2 {
+    font-size: 20px;
+  }
+}

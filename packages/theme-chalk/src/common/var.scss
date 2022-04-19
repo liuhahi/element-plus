@@ -199,7 +199,7 @@ $font-family: map.merge(
   (
     // default family
     '':
-      "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+      "'Poppins', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
   ),
   $font-family
 );
@@ -1396,3 +1396,19 @@ $breakpoints-spec: (
   'lg-and-down': '(max-width: #{$xl - 1})',
   'xl-only': '(min-width: #{$xl})',
 ) !default;
+
+// Text
+// css3 var in packages/theme-chalk/src/text.scss
+$text: () !default;
+$text: map.merge(
+  (
+    'font-size': getCssVar('font-size-base'),
+    'font-weight': getCssVar('font-weight-primary'),
+    'text-color': getCssVar('text-color-black'),
+    'hover-text-color': getCssVar('color-primary'),
+    'disabled-text-color': getCssVar('text-color-placeholder'),
+  ),
+  $text
+);
+
+$text-text-color: () !default;
